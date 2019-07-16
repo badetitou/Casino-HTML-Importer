@@ -14,8 +14,8 @@ CSNHTMLFactory >> createAttributeFor: aWidget from: anElement [
 CSNHTMLFactory >> createAttributesFor: widget from: anElement [
 	anElement
 		attributeNodesDo: [ :attribute | 
-		"	self model
-				silentlyAdd: (CSNAttribute htmlCreateAttributeFor: widget from: attribute)" ]
+			self model
+				silentlyAdd: (CSNAttribute htmlCreateAttributeFor: widget from: attribute) ]
 ]
 
 { #category : #'as yet unclassified' }
