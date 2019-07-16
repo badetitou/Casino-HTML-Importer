@@ -14,10 +14,11 @@ CSNHTMLImporter >> createFactory [
 
 { #category : #api }
 CSNHTMLImporter >> import [
-	visitor := CSNXMLSilverlightVisitor new importer: self; factory: self factory; yourself.
+	visitor := CSNXMLHTMLVisitor new importer: self; factory: self factory; yourself.
 	sourceModel acceptNodeVisitor: visitor 
 ]
 
 { #category : #api }
 CSNHTMLImporter >> preImport [
+	super preImport
 ]

@@ -7,25 +7,25 @@ Class {
 { #category : #'as yet unclassified' }
 CSNHTMLFactory >> createAttributeFor: aWidget from: anElement [
 	^  self model
-				silentlyAdd: (CSNAttribute silverCreateAttributeFor: aWidget from: anElement)
+				silentlyAdd: (CSNAttribute htmlCreateAttributeFor: aWidget from: anElement)
 ]
 
 { #category : #'as yet unclassified' }
 CSNHTMLFactory >> createAttributesFor: widget from: anElement [
 	anElement
 		attributeNodesDo: [ :attribute | 
-			self model
-				silentlyAdd: (CSNAttribute silverCreateAttributeFor: widget from: attribute) ]
+		"	self model
+				silentlyAdd: (CSNAttribute htmlCreateAttributeFor: widget from: attribute)" ]
 ]
 
 { #category : #'as yet unclassified' }
 CSNHTMLFactory >> createPageFrom: aDocumentXML [
-	^ self model silentlyAdd: (CSNPage new name: ((aDocumentXML nodes anyOne attributeNodeAt: 'x:Class') value substrings: '.') last ; yourself)
+	^ self model silentlyAdd: (CSNPage new)
 ]
 
 { #category : #'as yet unclassified' }
 CSNHTMLFactory >> createWidgetFrom: anElement [
 	^ self model
 		silentlyAdd:
-			(CSNWidget silverCreateWidgetFrom: anElement)
+			(CSNWidget htmlCreateWidgetFrom: anElement)
 ]
