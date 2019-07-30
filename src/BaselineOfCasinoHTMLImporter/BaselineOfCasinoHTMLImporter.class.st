@@ -24,9 +24,6 @@ BaselineOfCasinoHTMLImporter >> defineDependencies: spec [
 
 { #category : #baselines }
 BaselineOfCasinoHTMLImporter >> defineGroups: spec [
-	spec
-		group: 'default'
-		with: #('Casino-HTML-Importer')
 ]
 
 { #category : #baselines }
