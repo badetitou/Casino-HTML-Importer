@@ -9,8 +9,8 @@ CSNWidget class >> htmlCanHandle: anElement [
 CSNWidget class >> htmlCreateWidgetFrom: anElement [
 	^ (self allSubclasses
 		detect: [ :first | first htmlCanHandle: anElement ]
-		ifNone: [ ^ CSNUIContainer htmlNewInstanceFor: anElement ])
-		silverNewInstanceFor: anElement
+		ifNone: [ ^ CSNContainer htmlNewInstanceFor: anElement ])
+		htmlNewInstanceFor: anElement
 ]
 
 { #category : #'*Casino-HTML-Importer' }

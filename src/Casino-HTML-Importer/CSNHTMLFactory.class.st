@@ -20,7 +20,7 @@ CSNHTMLFactory >> createAttributesFor: widget from: anElement [
 
 { #category : #'as yet unclassified' }
 CSNHTMLFactory >> createPageFrom: aDocumentXML [
-	^ self model silentlyAdd: (CSNPage new)
+	^ self create: CSNPage
 ]
 
 { #category : #'as yet unclassified' }

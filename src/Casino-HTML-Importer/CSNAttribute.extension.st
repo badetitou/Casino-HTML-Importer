@@ -8,9 +8,9 @@ CSNAttribute class >> htmlCanHandle: anElement for: aWidget [
 { #category : #'*Casino-HTML-Importer' }
 CSNAttribute class >> htmlCreateAttributeFor: aWidget from: anElement [
 	^ (self allSubclasses
-		detect: [ :first | first silverCanHandle: anElement for: aWidget ]
-		ifNone: [ ^ CSNAttribute silverNewInstanceFor: aWidget from: anElement ])
-		silverNewInstanceFor: aWidget from: anElement
+		detect: [ :first | first htmlCanHandle: anElement for: aWidget ]
+		ifNone: [ ^ CSNAttribute htmlNewInstanceFor: aWidget from: anElement ])
+		htmlNewInstanceFor: aWidget from: anElement
 ]
 
 { #category : #'*Casino-HTML-Importer' }
