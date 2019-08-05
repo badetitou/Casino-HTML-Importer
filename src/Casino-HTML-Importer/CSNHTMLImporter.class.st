@@ -1,3 +1,10 @@
+"
+sourceModel := XMLDOMParser parseFileNamed: 'D:\Developpement\html\test\test.html'.
+htmlModel := CSNMooseModel new.
+CSNSilverlightImporter new sourceModel: sourceModel; createModelIn: htmlModel.
+htmlModel name: 'html'.
+htmlModel.
+"
 Class {
 	#name : #CSNHTMLImporter,
 	#superclass : #CSNWebModel,
