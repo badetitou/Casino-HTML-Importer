@@ -9,7 +9,7 @@ Class {
 
 { #category : #api }
 CSNHTMLImporter >> createFactory [
-	factory := CSNHTMLFactory new model: model; importer: self; yourself
+	factory := CSNHTMLFactory new model: model; importer: self; addVisitorImporter: CSNModelImporterHTMLVisitor new; yourself
 ]
 
 { #category : #api }

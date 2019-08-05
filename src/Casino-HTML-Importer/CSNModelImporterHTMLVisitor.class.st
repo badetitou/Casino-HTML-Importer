@@ -22,6 +22,11 @@ CSNModelImporterHTMLVisitor >> createWidgetFor: widgetElement [
 ]
 
 { #category : #visitor }
+CSNModelImporterHTMLVisitor >> visit: anElement [
+	^ anElement accept: self
+]
+
+{ #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIAlt: aCSNUIAlt [
 	^ aCSNUIAlt name = 'alt' ifTrue: [ self createAttributeFor: aCSNUIAlt ] ifFalse: [ nil ]
 ]

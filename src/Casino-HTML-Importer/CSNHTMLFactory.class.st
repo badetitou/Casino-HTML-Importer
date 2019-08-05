@@ -4,28 +4,22 @@ Class {
 	#category : #'Casino-HTML-Importer'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #creating }
 CSNHTMLFactory >> createAttributeFor: aWidget from: anElement [
-	^  self model
-				silentlyAdd: (CSNAttribute htmlCreateAttributeFor: aWidget from: anElement)
+	^  CSNAttribute newFrom: anElement for: aWidget withImporters: visitorImporters
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #creating }
 CSNHTMLFactory >> createAttributesFor: widget from: anElement [
-	anElement
-		attributeNodesDo: [ :attribute | 
-			self model
-				silentlyAdd: (CSNAttribute htmlCreateAttributeFor: widget from: attribute) ]
+	anElement attributeNodesDo: [ :attribute | self createAttributeFor: widget from: attribute ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #creating }
 CSNHTMLFactory >> createPageFrom: aDocumentXML [
 	^ self create: CSNPage
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #creating }
 CSNHTMLFactory >> createWidgetFrom: anElement [
-	^ self model
-		silentlyAdd:
-			(CSNWidget htmlCreateWidgetFrom: anElement)
+	^ CSNWidget initializeImporters: visitorImporters withInvocation: anElement andFor: nil
 ]
