@@ -14,8 +14,8 @@ CSNModelImporterHTMLVisitor >> createAttributeFor: attributeElement [
 ]
 
 { #category : #visitor }
-CSNModelImporterHTMLVisitor >> createWidgetFor: widgetElement [
-	^ (self create: self)
+CSNModelImporterHTMLVisitor >> createWidget: aWidgetClass for: widgetElement [
+	^ (self create: aWidgetClass)
 		source: widgetElement;
 		name: widgetElement name;
 		yourself
@@ -28,265 +28,265 @@ CSNModelImporterHTMLVisitor >> visit: anElement [
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIAlt: aCSNUIAlt [
-	^ aCSNUIAlt name = 'alt' ifTrue: [ self createAttributeFor: aCSNUIAlt ] ifFalse: [ nil ]
+	^ source name = 'alt' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIButton: aCSNUIButton [
-	^ (aCSNUIButton name = 'input' and: [ (aCSNUIButton attributeAt: 'type' ifAbsent: [ ^ false ]) = 'checkbox' ]) ifTrue: [ self createWidgetFor: aCSNUIButton ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'checkbox' ]) ifTrue: [ self createWidget: aCSNUIButton for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUICanvas: aCSNUICanvas [
-	^ (aCSNUICanvas name = 'canvas') ifTrue: [ self createWidgetFor: aCSNUICanvas ] ifFalse: [ nil ]
+	^ (source name = 'canvas') ifTrue: [ self createWidget: aCSNUICanvas for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIClass: aCSNUIClass [
-	^ aCSNUIClass name = 'class' ifTrue: [ self createAttributeFor: aCSNUIClass ] ifFalse: [ nil ]
+	^ source name = 'class' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIDisabled: aCSNUIDisabled [
-	^ aCSNUIDisabled name = 'disabled' ifTrue: [ self createAttributeFor: aCSNUIDisabled ] ifFalse: [ nil ]
+	^ source name = 'disabled' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIHeading1: aCSNUIHeading1 [
-	^ (aCSNUIHeading1 name = 'h1') ifTrue: [ self createWidgetFor: aCSNUIHeading1 ] ifFalse: [ nil ]
+	^ (source name = 'h1') ifTrue: [ self createWidget: aCSNUIHeading1 for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIHeading2: aCSNUIHeading2 [
-	^ (aCSNUIHeading2 name = 'h2') ifTrue: [ self createWidgetFor: aCSNUIHeading2 ] ifFalse: [ nil ]
+	^ source name = 'h2' ifTrue: [ self createWidget: aCSNUIHeading2 for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIHeading3: aCSNUIHeading3 [
-	^ (aCSNUIHeading3 name = 'h3') ifTrue: [ self createWidgetFor: aCSNUIHeading3 ] ifFalse: [ nil ]
+	^ source name = 'h3' ifTrue: [ self createWidget: aCSNUIHeading3 for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIHeading4: aCSNUIHeading4 [
-	^ (aCSNUIHeading4 name = 'h4') ifTrue: [ self createWidgetFor: aCSNUIHeading4 ] ifFalse: [ nil ]
+	^ source name = 'h4' ifTrue: [ self createWidget: aCSNUIHeading4 for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIHeading5: aCSNUIHeading5 [
-	^ (aCSNUIHeading5 name = 'h5') ifTrue: [ self createWidgetFor: aCSNUIHeading5 ] ifFalse: [ nil ]
+	^ source name = 'h5' ifTrue: [ self createWidget: aCSNUIHeading5 for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIHeading6: aCSNUIHeading6 [
-	^ (aCSNUIHeading6 name = 'h6') ifTrue: [ self createWidgetFor: aCSNUIHeading6 ] ifFalse: [ nil ]
+	^ source name = 'h6' ifTrue: [ self createWidget: aCSNUIHeading6 for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIHeight: aCSNUIHeight [
-	^ aCSNUIHeight name = 'height' ifTrue: [ self createAttributeFor: aCSNUIHeight ] ifFalse: [ nil ]
+	^ source name = 'height' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIId: aCSNUIId [
-	^ aCSNUIId name = 'id' ifTrue: [ self createAttributeFor: aCSNUIId ] ifFalse: [ nil ]
+	^ source name = 'id' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIImage: aCSNUIImage [
-	^ (aCSNUIImage name = 'img') ifTrue: [ self createWidgetFor: aCSNUIImage ] ifFalse: [ nil ]
+	^ source name = 'img' ifTrue: [ self createWidget: aCSNUIImage for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputCheckbox: aCSNUIInputCheckbox [
-	^ (aCSNUIInputCheckbox name = 'input' and: [ (aCSNUIInputCheckbox attributeAt: 'type' ifAbsent: [ ^ false ]) = 'checkbox' ]) ifTrue: [ self createWidgetFor: aCSNUIInputCheckbox ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'checkbox' ]) ifTrue: [ self createWidget: aCSNUIInputCheckbox for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputColor: aCSNUIInputColor [
-	^ (aCSNUIInputColor name = 'input' and: [ (aCSNUIInputColor attributeAt: 'type' ifAbsent: [ ^ false ]) = 'color' ]) ifTrue: [ self createWidgetFor: aCSNUIInputColor ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'color' ]) ifTrue: [ self createWidget: aCSNUIInputColor for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputDate: aCSNUIInputDate [
-	^ (aCSNUIInputDate name = 'input' and: [ (aCSNUIInputDate attributeAt: 'type' ifAbsent: [ ^ false ]) = 'date' ]) ifTrue: [ self createWidgetFor: aCSNUIInputDate ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'date' ]) ifTrue: [ self createWidget: aCSNUIInputDate for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputDatetimeLocal: aCSNUIInputDatetimeLocal [
-	^ (aCSNUIInputDatetimeLocal name = 'input' and: [ (aCSNUIInputDatetimeLocal attributeAt: 'type' ifAbsent: [ ^ false ]) = 'datetime-local' ]) ifTrue: [ self createWidgetFor: aCSNUIInputDatetimeLocal ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'datetime-local' ]) ifTrue: [ self createWidget: aCSNUIInputDatetimeLocal for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputEmail: aCSNUIInputEmail [
-	^ (aCSNUIInputEmail name = 'input' and: [ (aCSNUIInputEmail attributeAt: 'type' ifAbsent: [ ^ false ]) = 'email' ]) ifTrue: [ self createWidgetFor: aCSNUIInputEmail ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'email' ]) ifTrue: [ self createWidget: aCSNUIInputEmail for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputFile: aCSNUIInputFile [
-	^ (aCSNUIInputFile name = 'input' and: [ (aCSNUIInputFile attributeAt: 'type' ifAbsent: [ ^ false ]) = 'file' ]) ifTrue: [ self createWidgetFor: aCSNUIInputFile ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'file' ]) ifTrue: [ self createWidget: aCSNUIInputFile for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputMonth: aCSNUIInputMonth [
-	^ (aCSNUIInputMonth name = 'input' and: [ (aCSNUIInputMonth attributeAt: 'type' ifAbsent: [ ^ false ]) = 'month' ]) ifTrue: [ self createWidgetFor: aCSNUIInputMonth ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'month' ]) ifTrue: [ self createWidget: aCSNUIInputMonth for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputNumber: aCSNUIInputNumber [
-	^ (aCSNUIInputNumber name = 'input' and: [ (aCSNUIInputNumber attributeAt: 'type' ifAbsent: [ ^ false ]) = 'number' ]) ifTrue: [ self createWidgetFor: aCSNUIInputNumber ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'number' ]) ifTrue: [ self createWidget: aCSNUIInputNumber for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputPassword: aCSNUIInputPassword [
-	^ (aCSNUIInputPassword name = 'input' and: [ (aCSNUIInputPassword attributeAt: 'type' ifAbsent: [ ^ false ]) = 'password' ]) ifTrue: [ self createWidgetFor: aCSNUIInputPassword ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'password' ]) ifTrue: [ self createWidget: aCSNUIInputPassword for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputRadio: aCSNUIInputRadio [
-	^ (aCSNUIInputRadio name = 'input' and: [ (aCSNUIInputRadio attributeAt: 'type' ifAbsent: [ ^ false ]) = 'radio' ]) ifTrue: [ self createWidgetFor: aCSNUIInputRadio ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'radio' ]) ifTrue: [ self createWidget: aCSNUIInputRadio for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputRange: aCSNUIInputRange [
-	^ (aCSNUIInputRange name = 'input' and: [ (aCSNUIInputRange attributeAt: 'type' ifAbsent: [ ^ false ]) = 'range' ]) ifTrue: [ self createWidgetFor: aCSNUIInputRange ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'range' ]) ifTrue: [ self createWidget: aCSNUIInputRange for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputReset: aCSNUIInputReset [
-	^ (aCSNUIInputReset name = 'input' and: [ (aCSNUIInputReset attributeAt: 'type' ifAbsent: [ ^ false ]) = 'reset' ]) ifTrue: [ self createWidgetFor: aCSNUIInputReset ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'reset' ]) ifTrue: [ self createWidget: aCSNUIInputReset for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputSearch: aCSNUIInputSearch [
-	^ (aCSNUIInputSearch name = 'input' and: [ (aCSNUIInputSearch attributeAt: 'type' ifAbsent: [ ^ false ]) = 'search' ]) ifTrue: [ self createWidgetFor: aCSNUIInputSearch ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'search' ]) ifTrue: [ self createWidget: aCSNUIInputSearch for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputSubmit: aCSNUIInputSubmit [
-	^ (aCSNUIInputSubmit name = 'input' and: [ (aCSNUIInputSubmit attributeAt: 'type' ifAbsent: [ ^ false ]) = 'submit' ]) ifTrue: [ self createWidgetFor: aCSNUIInputSubmit ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'submit' ]) ifTrue: [ self createWidget: aCSNUIInputSubmit for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputTel: aCSNUIInputTel [
-	^ (aCSNUIInputTel name = 'input' and: [ (aCSNUIInputTel attributeAt: 'type' ifAbsent: [ ^ false ]) = 'tel' ]) ifTrue: [ self createWidgetFor: aCSNUIInputTel ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'tel' ]) ifTrue: [ self createWidget: aCSNUIInputTel for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputText: aCSNUIInputText [
-	^ (aCSNUIInputText name = 'input' and: [ (aCSNUIInputText attributeAt: 'type' ifAbsent: [ ^ false ]) = 'text' ]) ifTrue: [ self createWidgetFor: aCSNUIInputText ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'text' ]) ifTrue: [ self createWidget: aCSNUIInputText for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputTime: aCSNUIInputTime [
-	^ (aCSNUIInputTime name = 'input' and: [ (aCSNUIInputTime attributeAt: 'type' ifAbsent: [ ^ false ]) = 'time' ]) ifTrue: [ self createWidgetFor: aCSNUIInputTime ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'time' ]) ifTrue: [ self createWidget: aCSNUIInputTime for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputUrl: aCSNUIInputUrl [
-	^ (aCSNUIInputUrl name = 'input' and: [ (aCSNUIInputUrl attributeAt: 'type' ifAbsent: [ ^ false ]) = 'url' ]) ifTrue: [ self createWidgetFor: aCSNUIInputUrl ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'url' ]) ifTrue: [ self createWidget: aCSNUIInputUrl for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIInputWeek: aCSNUIInputWeek [
-	^ (aCSNUIInputWeek name = 'input' and: [ (aCSNUIInputWeek attributeAt: 'type' ifAbsent: [ ^ false ]) = 'week' ]) ifTrue: [ self createWidgetFor: aCSNUIInputWeek ] ifFalse: [ nil ]
+	^ (source name = 'input' and: [ (source attributeAt: 'type' ifAbsent: [ ^ false ]) = 'week' ]) ifTrue: [ self createWidget: aCSNUIInputWeek for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUILink: aCSNUILink [
-	^ (aCSNUILink name = 'a') ifTrue: [ self createWidgetFor: aCSNUILink ] ifFalse: [ nil ]
+	^ source name = 'a' ifTrue: [ self createWidget: aCSNUILink for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIMax: aCSNUIMax [
-	^ aCSNUIMax name = 'max' ifTrue: [ self createAttributeFor: aCSNUIMax ] ifFalse: [ nil ]
+	^ source name = 'max' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIMaxlength: aCSNUIMaxlength [
-	^ aCSNUIMaxlength name = 'maxlength' ifTrue: [ self createAttributeFor: aCSNUIMaxlength ] ifFalse: [ nil ]
+	^ source name = 'maxlength' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIMin: aCSNUIMin [
-	^ aCSNUIMin name = 'min' ifTrue: [ self createAttributeFor: aCSNUIMin ] ifFalse: [ nil ]
+	^ source name = 'min' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIName: aCSNUIName [
-	^ aCSNUIName name = 'name' ifTrue: [ self createAttributeFor: aCSNUIName ] ifFalse: [ nil ]
+	^ source name = 'name' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIOrderedList: aCSNUIOrderedList [
-	^ (aCSNUIOrderedList name = 'ol') ifTrue: [ self createWidgetFor: aCSNUIOrderedList ] ifFalse: [ nil ]
+	^ source name = 'ol' ifTrue: [ self createWidget: aCSNUIOrderedList for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIParagraph: aCSNUIParagraph [
-	^ (aCSNUIParagraph name = 'p') ifTrue: [ self createWidgetFor: aCSNUIParagraph ] ifFalse: [ nil ]
+	^ source name = 'p' ifTrue: [ self createWidget: aCSNUIParagraph for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIPlaceholder: aCSNUIPlaceholder [
-	^ aCSNUIPlaceholder name = 'placeholder' ifTrue: [ self createAttributeFor: aCSNUIPlaceholder ] ifFalse: [ nil ]
+	^ source name = 'placeholder' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIReadonly: aCSNUIReadonly [
-	^ aCSNUIReadonly name = 'readonly' ifTrue: [ self createAttributeFor: aCSNUIReadonly ] ifFalse: [ nil ]
+	^ source name = 'readonly' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIRequired: aCSNUIRequired [
-	^ aCSNUIRequired name = 'required' ifTrue: [ self createAttributeFor: aCSNUIRequired ] ifFalse: [ nil ]
+	^ source name = 'required' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUISelect: aCSNUISelect [
-	^ (aCSNUISelect name = 'select') ifTrue: [ self createWidgetFor: aCSNUISelect ] ifFalse: [ nil ]
+	^ source name = 'select' ifTrue: [ self createWidget: aCSNUISelect for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUISize: aCSNUISize [
-	^ aCSNUISize name = 'size' ifTrue: [ self createAttributeFor: aCSNUISize ] ifFalse: [ nil ]
+	^ source name = 'size' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUISrc: aCSNUISrc [
-	^ aCSNUISrc name = 'src' ifTrue: [ self createAttributeFor: aCSNUISrc ] ifFalse: [ nil ]
+	^ source name = 'src' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIStyle: aCSNUIStyle [
-	^ aCSNUIStyle name = 'style' ifTrue: [ self createAttributeFor: aCSNUIStyle ] ifFalse: [ nil ]
+	^ source name = 'style' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUITable: aCSNUITable [
-	^ (aCSNUITable name = 'table') ifTrue: [ self createWidgetFor: aCSNUITable ] ifFalse: [ nil ]
+	^ source name = 'table' ifTrue: [ self createWidget: aCSNUITable for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUITextarea: aCSNUITextarea [
-	^ (aCSNUITextarea name = 'textarea') ifTrue: [ self createWidgetFor: aCSNUITextarea ] ifFalse: [ nil ]
+	^ source name = 'textarea' ifTrue: [ self createWidget: aCSNUITextarea for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUITitle: aCSNUITitle [
-	^ aCSNUITitle name = 'title' ifTrue: [ self createAttributeFor: aCSNUITitle ] ifFalse: [ nil ]
+	^ source name = 'title' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIUnorderedList: aCSNUIUnorderedList [
-	^ (aCSNUIUnorderedList name = 'ul') ifTrue: [ self createWidgetFor: aCSNUIUnorderedList ] ifFalse: [ nil ]
+	^ source name = 'ul' ifTrue: [ self createWidget: aCSNUIUnorderedList for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIValue: aCSNUIValue [
-	^ aCSNUIValue name = 'value' ifTrue: [ self createAttributeFor: aCSNUIValue ] ifFalse: [ nil ]
+	^ source name = 'value' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIWidth: aCSNUIWidth [
-	^ aCSNUIWidth name = 'width' ifTrue: [ self createAttributeFor: aCSNUIWidth ] ifFalse: [ nil ]
+	^ source name = 'width' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
 ]

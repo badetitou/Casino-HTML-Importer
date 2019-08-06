@@ -64,8 +64,6 @@ CSNXMLHTMLVisitor >> visitElement: anElement [
 
 { #category : #visiting }
 CSNXMLHTMLVisitor >> visitNodeWithElements: aNodeWithElements [
-	(aNodeWithElements hasChildren and: [ self parentWidget isContainer ])
-		ifTrue:
-			[ aNodeWithElements nodesDo: [ :each | each acceptNodeVisitor: self ] ].
+	(aNodeWithElements hasChildren and: [ self parentWidget isContainer ]) ifTrue: [ aNodeWithElements nodesDo: [ :each | each acceptNodeVisitor: self ] ].
 	^ aNodeWithElements
 ]

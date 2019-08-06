@@ -6,7 +6,7 @@ Class {
 
 { #category : #creating }
 CSNHTMLFactory >> createAttributeFor: aWidget from: anElement [
-	^  CSNAttribute newFrom: anElement for: aWidget withImporters: visitorImporters
+	^ CSNAttribute newFrom: anElement for: aWidget withImporters: visitorImporters
 ]
 
 { #category : #creating }
@@ -21,5 +21,5 @@ CSNHTMLFactory >> createPageFrom: aDocumentXML [
 
 { #category : #creating }
 CSNHTMLFactory >> createWidgetFrom: anElement [
-	^ CSNWidget initializeImporters: visitorImporters withInvocation: anElement andFor: nil
+	^ (CSNWidget newFrom: anElement for: nil withImporters: visitorImporters) ifNil: [ self create: CSNContainer ]
 ]
