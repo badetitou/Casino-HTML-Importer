@@ -5,11 +5,11 @@ Class {
 }
 
 { #category : #'instance creation' }
-CSNModelImporterHTMLVisitor >> createAttributeFor: attributeElement [
-	^ (self create: self)
+CSNModelImporterHTMLVisitor >> createAttribute: aAttributeClass for: attributeElement [
+	^ (self create: aAttributeClass)
 		name: attributeElement name;
 		attributeValue: attributeElement value asLowercase;
-		widget: attributeElement;
+		widget: entity;
 		yourself
 ]
 
@@ -28,7 +28,7 @@ CSNModelImporterHTMLVisitor >> visit: anElement [
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIAlt: aCSNUIAlt [
-	^ source name = 'alt' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'alt' ifTrue: [ self createAttribute: aCSNUIAlt for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
@@ -43,12 +43,12 @@ CSNModelImporterHTMLVisitor >> visitCSNUICanvas: aCSNUICanvas [
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIClass: aCSNUIClass [
-	^ source name = 'class' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'class' ifTrue: [ self createAttribute: aCSNUIClass for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIDisabled: aCSNUIDisabled [
-	^ source name = 'disabled' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'disabled' ifTrue: [ self createAttribute: aCSNUIDisabled for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
@@ -83,12 +83,12 @@ CSNModelImporterHTMLVisitor >> visitCSNUIHeading6: aCSNUIHeading6 [
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIHeight: aCSNUIHeight [
-	^ source name = 'height' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'height' ifTrue: [ self createAttribute: aCSNUIHeight for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIId: aCSNUIId [
-	^ source name = 'id' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'id' ifTrue: [ self createAttribute: aCSNUIId for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
@@ -198,22 +198,22 @@ CSNModelImporterHTMLVisitor >> visitCSNUILink: aCSNUILink [
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIMax: aCSNUIMax [
-	^ source name = 'max' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'max' ifTrue: [ self createAttribute: aCSNUIMax for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIMaxlength: aCSNUIMaxlength [
-	^ source name = 'maxlength' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'maxlength' ifTrue: [ self createAttribute: aCSNUIMaxlength for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIMin: aCSNUIMin [
-	^ source name = 'min' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'min' ifTrue: [ self createAttribute: aCSNUIMin for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIName: aCSNUIName [
-	^ source name = 'name' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'name' ifTrue: [ self createAttribute: aCSNUIName for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
@@ -228,17 +228,17 @@ CSNModelImporterHTMLVisitor >> visitCSNUIParagraph: aCSNUIParagraph [
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIPlaceholder: aCSNUIPlaceholder [
-	^ source name = 'placeholder' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'placeholder' ifTrue: [ self createAttribute: aCSNUIPlaceholder for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIReadonly: aCSNUIReadonly [
-	^ source name = 'readonly' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'readonly' ifTrue: [ self createAttribute: aCSNUIReadonly for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIRequired: aCSNUIRequired [
-	^ source name = 'required' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'required' ifTrue: [ self createAttribute: aCSNUIRequired for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
@@ -248,17 +248,17 @@ CSNModelImporterHTMLVisitor >> visitCSNUISelect: aCSNUISelect [
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUISize: aCSNUISize [
-	^ source name = 'size' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'size' ifTrue: [ self createAttribute: aCSNUISize for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUISrc: aCSNUISrc [
-	^ source name = 'src' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'src' ifTrue: [ self createAttribute: aCSNUISrc for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIStyle: aCSNUIStyle [
-	^ source name = 'style' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'style' ifTrue: [ self createAttribute: aCSNUIStyle for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
@@ -273,7 +273,7 @@ CSNModelImporterHTMLVisitor >> visitCSNUITextarea: aCSNUITextarea [
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUITitle: aCSNUITitle [
-	^ source name = 'title' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'title' ifTrue: [ self createAttribute: aCSNUITitle for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
@@ -283,10 +283,10 @@ CSNModelImporterHTMLVisitor >> visitCSNUIUnorderedList: aCSNUIUnorderedList [
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIValue: aCSNUIValue [
-	^ source name = 'value' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'value' ifTrue: [ self createAttribute: aCSNUIValue for: source ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIWidth: aCSNUIWidth [
-	^ source name = 'width' ifTrue: [ self createAttributeFor: source ] ifFalse: [ nil ]
+	^ source name = 'width' ifTrue: [ self createAttribute: aCSNUIWidth for: source ] ifFalse: [ nil ]
 ]
