@@ -4,6 +4,15 @@ Class {
 	#category : #'Casino-HTML-Importer'
 }
 
+{ #category : #visitor }
+CSNModelImporterHTMLVisitor >> GvisitCSNUIDisabled: aCSNUIDisabled [
+	^ source name = 'disabled'
+		ifTrue: [ (self createAttribute: aCSNUIDisabled for: source)
+				disabled: true;
+				yourself ]
+		ifFalse: [ nil ]
+]
+
 { #category : #'instance creation' }
 CSNModelImporterHTMLVisitor >> createAttribute: aAttributeClass for: attributeElement [
 	^ (self create: aAttributeClass)
@@ -48,7 +57,7 @@ CSNModelImporterHTMLVisitor >> visitCSNUIClass: aCSNUIClass [
 
 { #category : #visitor }
 CSNModelImporterHTMLVisitor >> visitCSNUIDisabled: aCSNUIDisabled [
-	^ source name = 'disabled' ifTrue: [ self createAttribute: aCSNUIDisabled for: source ] ifFalse: [ nil ]
+	^ source name = 'disabled' ifTrue: [ (self createAttribute: aCSNUIDisabled for: source) disabled: true; yourself ] ifFalse: [ nil ]
 ]
 
 { #category : #visitor }
