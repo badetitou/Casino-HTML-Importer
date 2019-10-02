@@ -19,7 +19,9 @@ BaselineOfCasinoHTMLImporter >> defineDependencies: spec [
 	spec
 		baseline: 'Casino'
 		with: [ spec
-				repository: 'github://badetitou/Casino:master/src' ]
+				repository: 'github://badetitou/Casino:master/src' ].
+	spec baseline: 'XMLParser' with: [ spec repository: 'github://svenvc/XML-Support-Pharo' ].
+
 ]
 
 { #category : #baselines }
@@ -31,5 +33,5 @@ BaselineOfCasinoHTMLImporter >> definePackages: spec [
 	spec
 		package: 'BaselineOfCasinoHTMLImporter';
 		package: 'Casino-HTML-Importer'
-			with: [ spec requires: #('Casino') ]
+			with: [ spec requires: #('Casino' 'XMLParser') ]
 ]
