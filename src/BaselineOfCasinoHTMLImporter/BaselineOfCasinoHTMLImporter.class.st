@@ -20,7 +20,7 @@ BaselineOfCasinoHTMLImporter >> defineDependencies: spec [
 	spec
 		baseline: 'XMLParser'
 		with: [ spec
-				loads: #('core');
+				loads: #('Core');
 				repository: 'github://svenvc/XML-Support-Pharo' ]
 ]
 
